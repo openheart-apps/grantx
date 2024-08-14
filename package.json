@@ -1,12 +1,23 @@
 {
-  "name": "keyX",
+  "name": "GrantX",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"pnpm dev:web\" \"pnpm dev:dashboard\"",
+    "dev:web": "cd apps/web && pnpm dev",
+    "dev:dashboard": "cd apps/dashboard && pnpm dev"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
 }
