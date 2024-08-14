@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,17 +10,19 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { FaGoogle, FaGithub, FaArrowLeft } from "react-icons/fa";
+import Link from "next/link";
 
-// Importing icons from react-icons
-import { FaGoogle, FaGithub } from "react-icons/fa";
-
-export default function Signup() {
+export default function Signin() {
   return (
     <div className="flex items-center justify-center min-h-screen mt-10 mb-10">
-      <Card className="w-[500px] border-none my-8"> {/* Added top and bottom margin */}
-        <CardHeader className="mb-4"> {/* Added bottom margin */}
-          <CardTitle>Create a GrantX account</CardTitle>
-          <CardDescription>Already have an account? Login here</CardDescription>
+      <Link href={`${process.env.NEXT_LANDING_PAGE_URL}`} className="absolute top-4 left-4 flex items-center text-zinc-400 mt-4 ml-4">
+        <FaArrowLeft className="mr-2" />
+      </Link>
+      <Card className="w-[500px] border-none my-8">
+        <CardHeader className="mb-4"> 
+          <CardTitle>Login to your GrantX account</CardTitle>
+          <CardDescription> Don't have an account? <Link className="text-blue-400" href={`${process.env.NEXT_PUBLIC_BASE_URL}/auth/signup`}>Sign up here</Link></CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col gap-2 mb-4">
@@ -49,7 +52,7 @@ export default function Signup() {
           </form>
         </CardContent>
         <CardFooter className="flex mt-4"> {/* Added top margin */}
-          <Button className="w-full">Sign Up</Button>
+          <Button className="w-full">Sign in</Button>
         </CardFooter>
       </Card>
     </div>

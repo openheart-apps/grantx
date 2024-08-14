@@ -9,17 +9,19 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-
-// Importing icons from react-icons
-import { FaGoogle, FaGithub } from "react-icons/fa";
+import Link from "next/link";
+import { FaGoogle, FaGithub, FaArrowLeft } from "react-icons/fa";
 
 export default function Signup() {
   return (
     <div className="flex items-center justify-center min-h-screen mt-10 mb-10">
-      <Card className="w-[500px] border-none my-8"> {/* Added top and bottom margin */}
-        <CardHeader className="mb-4"> {/* Added bottom margin */}
+      <Link href={`${process.env.NEXT_LANDING_PAGE_URL}`} className="absolute top-4 left-4 flex items-center text-zinc-400 mt-4 ml-4">
+        <FaArrowLeft className="mr-2" /> Home
+      </Link>
+      <Card className="w-[500px] border-none my-8"> 
+        <CardHeader className="mb-4"> 
           <CardTitle>Create a GrantX account</CardTitle>
-          <CardDescription>Already have an account? Login here</CardDescription>
+          <CardDescription>Already have an account? <Link className="text-blue-400" href={`${process.env.NEXT_PUBLIC_BASE_URL}/auth/signin`}>Login here</Link></CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col gap-2 mb-4">
