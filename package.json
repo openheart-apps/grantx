@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"pnpm dev:web\" \"pnpm dev:dashboard\" \"pnpm dev:docs\"",
+    "dev": "concurrently \"pnpm dev:web\" \"pnpm dev:dashboard\" \"pnpm dev:docs\" \"pnpm dev:api\"",
     "dev:web": "cd apps/web && pnpm dev",
     "dev:dashboard": "cd apps/dashboard && pnpm dev",
-    "dev:docs": "cd apps/docs && pnpm dev"
+    "dev:docs": "cd apps/docs && pnpm dev",
+    "dev:api": "cd apps/api && pnpm dev"
   },
   "keywords": [],
   "author": "",
