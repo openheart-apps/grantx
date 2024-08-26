@@ -52,31 +52,31 @@ const VerticalNavbar = () => {
         <div className="space-y-4">
           <Link href="/applications" legacyBehavior>
             <a className="flex items-center w-full text-zinc-400 py-2 px-4 rounded hover:bg-neutral-900 hover:text-zinc-200 scroll-m-20 text-md font-medium tracking-tight">
-              <Cable className="mr-2 w-5 h-5" /> 
+              <Cable className="mr-2 w-4 h-4" /> 
               APIs
             </a>
           </Link>
           <Link href="/profile" legacyBehavior>
             <a className="flex items-center w-full text-zinc-400 py-2 px-4 rounded hover:bg-neutral-900 hover:text-zinc-200 scroll-m-20 text-md font-medium tracking-tight">
-              <Logs className="mr-2 w-5 h-5" /> 
+              <Logs className="mr-2 w-4 h-4" /> 
               Audit Logs
             </a>
           </Link>
           <Link href="/root-key" legacyBehavior>
             <a className="flex items-center w-full text-zinc-400 py-2 px-4 rounded hover:bg-neutral-900 hover:text-zinc-200 scroll-m-20 text-md font-medium tracking-tight">
-              <KeyRound className="mr-2 w-5 h-5" />  
+              <KeyRound className="mr-2 w-4 h-4" />  
               Root Key
             </a>
           </Link>
           <Link href="/settings" legacyBehavior>
             <a className="flex items-center w-full text-zinc-400 py-2 px-4 rounded hover:bg-neutral-900 hover:text-zinc-200 scroll-m-20 text-md font-medium tracking-tight">
-              <Settings className="mr-2 w-5 h-5" /> 
+              <Settings className="mr-2 w-4 h-4" /> 
               Settings
             </a>
           </Link>
           <Link href="/docs" legacyBehavior>
             <a className="flex items-center w-full text-zinc-400 py-2 px-4 rounded hover:bg-neutral-900 hover:text-zinc-200 scroll-m-20 text-md font-medium tracking-tight">
-              <BookOpen className="mr-2 w-5 h-5" /> 
+              <BookOpen className="mr-2 w-4 h-4" /> 
               Docs
             </a>
           </Link>
@@ -89,7 +89,7 @@ const VerticalNavbar = () => {
             onClick={handleLogout}
             className="flex items-center w-full text-zinc-400 py-2 px-4 rounded hover:bg-neutral-900 hover:text-zinc-200 text-md font-medium tracking-tight"
           >
-            <LogOut className="mr-2 w-5 h-5" /> 
+            <LogOut className="mr-2 w-4 h-4" /> 
             Logout
           </button>
         </div>
