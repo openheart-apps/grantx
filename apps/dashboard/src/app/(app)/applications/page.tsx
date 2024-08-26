@@ -1,9 +1,9 @@
 'use client'
+import VerticalNavbar from '@/components/VerticalNav';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 
 export default function HelloPage() {
   const [user, setUser] = useState<any>(null);
@@ -27,16 +27,21 @@ export default function HelloPage() {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <div className="flex items-center justify-center min-h-screen mt-10 mb-10">
-      <Card className="w-[400px] border-none my-8">
-        <CardContent>
-          {user ? (
-            <CardTitle>Hello, {user.email}!</CardTitle>
-          ) : (
-            <CardTitle>Loading...</CardTitle>
-          )}
-        </CardContent>
-      </Card>
+    <div className="flex min-h-screen">
+      <div className="flex-none flex flex-col justify-center">
+        <VerticalNavbar />
+      </div>
+      <div className="flex-1 flex items-center justify-center">
+        <Card className="w-[400px] border-none my-8">
+          <CardContent>
+            {user ? (
+              <CardTitle>Hello, {user.email}!</CardTitle>
+            ) : (
+              <CardTitle>Loading...</CardTitle>
+            )}
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }
