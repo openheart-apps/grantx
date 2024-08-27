@@ -3,6 +3,7 @@ import VerticalNavbar from '@/components/VerticalNav';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 import { useRouter } from 'next/navigation';
+import { LogOut } from 'lucide-react';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 
 export default function HelloPage() {
@@ -12,7 +13,12 @@ export default function HelloPage() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session }, error } = await supabase.auth.getSession();
+      if (error) {
+        console.error('Error fetching session:', error.message);
+        setLoading(false);
+        return;
+      }
       if (session?.user) {
         setUser(session.user);
       } else {
@@ -23,6 +29,15 @@ export default function HelloPage() {
 
     fetchUser();
   }, [router]);
+
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      console.error('Error during logout:', error.message);
+      return;
+    }
+    router.push('/auth/signin'); // Redirect to sign-in after logout
+  };
 
   if (loading) return <div>Loading...</div>;
 
@@ -35,7 +50,9 @@ export default function HelloPage() {
         <Card className="w-[400px] border-none my-8">
           <CardContent>
             {user ? (
-              <CardTitle>Hello, {user.email}!</CardTitle>
+              <>
+                <CardTitle>Hello, {user.email}!</CardTitle>
+              </>
             ) : (
               <CardTitle>Loading...</CardTitle>
             )}
